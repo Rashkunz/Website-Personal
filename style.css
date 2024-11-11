@@ -1,0 +1,194 @@
+/* Reset dasar */
+@font-face {
+  font-family: "JAPAN-Bold";
+  src: url(assets/JAPAN-Bold.ttf);
+}
+@font-face {
+  font-family: "Mangaka";
+  src: url(assets/Mangaka.otf);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Mangaka";
+  line-height: 1.6;
+  color: #333;
+}
+
+/* Header */
+header {
+  background-color: #c8acd6;
+  color: #ffffff;
+  padding: 1rem;
+  text-align: center;
+}
+
+header h1 {
+  font-family: "JAPAN-Bold";
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.nav-bar {
+  margin-top: 1rem;
+}
+
+.nav-bar a {
+  color: #433d8b;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+.nav-bar a:hover {
+  text-decoration: underline;
+}
+
+/* Main content */
+main {
+  padding: 2rem;
+  background-color: #433d8b;
+}
+
+main h2 {
+  color: #efe3f5;
+}
+
+main article {
+  display: flex;
+  flex-direction: column;
+  gap: 16px; /* Jarak antara setiap section */
+  align-items: center;
+  padding: 20px; /* Padding opsional di sekitar article */
+  flex-direction: row; /* Ubah menjadi row untuk tampilan horizontal */
+  justify-content: space-between; /* Jarak antar item secara merata */
+  overflow-x: auto; /* Tambahkan scroll horizontal pada artikel */
+  -webkit-overflow-scrolling: touch; /* Supaya scroll lebih halus di perangkat mobile */
+}
+
+article section {
+  width: 20%; /* Sesuaikan lebar setiap item */
+  height: auto; /* Biarkan tinggi menyesuaikan konten */
+  background-color: #efe3f5; /* Latar belakang abu-abu terang */
+  border-radius: 8px; /* Sudut melengkung */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Bayangan halus */
+}
+
+.komik-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+}
+
+.komik-item img {
+  width: 100%;
+  height: auto;
+}
+
+.komik-info {
+  text-align: center;
+}
+
+/* Footer */
+footer {
+  background-color: #17153b;
+  color: #ffffff;
+  padding: 2rem;
+  text-align: center;
+}
+
+footer h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+footer p {
+  margin-bottom: 1rem;
+}
+
+.footer-bar a {
+  color: #433d8b;
+  margin: 0 10px;
+}
+
+.footer-bar a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  /* On large screens (e.g., tablets and small desktops), adjust the sections */
+  article {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  article section {
+    width: 30%;
+  }
+}
+
+@media (max-width: 768px) {
+  /* For medium screens (e.g., tablets and smaller devices), stack the sections vertically */
+  article {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  article section {
+    width: 80%; /* Make the section wider on smaller screens */
+    margin-bottom: 20px;
+  }
+
+  .nav-bar a {
+    font-size: 1rem; /* Adjust navigation font size */
+    margin: 0 5px;
+  }
+}
+
+@media (max-width: 480px) {
+  /* For very small screens (e.g., phones), make the font size smaller and stack everything */
+  header h1 {
+    font-size: 1.5rem;
+  }
+
+  main h2 {
+    font-size: 1.25rem;
+  }
+
+  .nav-bar a {
+    font-size: 0.9rem;
+    margin: 0 2px;
+  }
+
+  article section {
+    width: 90%; /* Maximize the width of sections on very small screens */
+  }
+
+  footer h2 {
+    font-size: 1.25rem;
+  }
+
+  footer p {
+    font-size: 0.9rem;
+  }
+
+  /* Allow horizontal scrolling for article */
+  main article {
+    flex-direction: row;
+    overflow-x: scroll;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  article section {
+    flex-shrink: 0; /* Prevent shrinking */
+    width: auto; /* Allow sections to take their full width */
+    min-width: 200px; /* Minimum width for each section */
+    margin-right: 10px; /* Add some space between sections */
+  }
+}
