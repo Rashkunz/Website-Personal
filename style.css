@@ -1,194 +1,183 @@
 /* Reset dasar */
-@font-face {
-  font-family: "JAPAN-Bold";
-  src: url(assets/JAPAN-Bold.ttf);
-}
-@font-face {
-  font-family: "Mangaka";
-  src: url(assets/Mangaka.otf);
-}
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* Layout utama */
 body {
-  font-family: "Mangaka";
-  line-height: 1.6;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
   color: #333;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
-/* Header */
 header {
-  background-color: #c8acd6;
-  color: #ffffff;
+  background-color: #433d8b;
+  color: white;
   padding: 1rem;
   text-align: center;
 }
 
-header h1 {
-  font-family: "JAPAN-Bold";
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
+nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
 }
 
-.nav-bar {
-  margin-top: 1rem;
-}
-
-.nav-bar a {
-  color: #433d8b;
+nav a {
+  color: white;
   text-decoration: none;
-  margin: 0 10px;
+  padding: 0.4rem 0.8rem;
+  border: 1px solid white;
+  border-radius: 5px;
+  background-color: transparent;
+  font-size: 14px;
+  transition: background-color 0.3s;
+  cursor: pointer;
 }
 
-.nav-bar a:hover {
-  text-decoration: underline;
-}
-
-/* Main content */
-main {
-  padding: 2rem;
-  background-color: #433d8b;
-}
-
-main h2 {
-  color: #efe3f5;
-}
-
-main article {
-  display: flex;
-  flex-direction: column;
-  gap: 16px; /* Jarak antara setiap section */
-  align-items: center;
-  padding: 20px; /* Padding opsional di sekitar article */
-  flex-direction: row; /* Ubah menjadi row untuk tampilan horizontal */
-  justify-content: space-between; /* Jarak antar item secara merata */
-  overflow-x: auto; /* Tambahkan scroll horizontal pada artikel */
-  -webkit-overflow-scrolling: touch; /* Supaya scroll lebih halus di perangkat mobile */
-}
-
-article section {
-  width: 20%; /* Sesuaikan lebar setiap item */
-  height: auto; /* Biarkan tinggi menyesuaikan konten */
-  background-color: #efe3f5; /* Latar belakang abu-abu terang */
-  border-radius: 8px; /* Sudut melengkung */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Bayangan halus */
-}
-
-.komik-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 10px;
-}
-
-.komik-item img {
-  width: 100%;
-  height: auto;
-}
-
-.komik-info {
-  text-align: center;
-}
-
-/* Footer */
-footer {
-  background-color: #17153b;
-  color: #ffffff;
-  padding: 2rem;
-  text-align: center;
-}
-
-footer h2 {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-}
-
-footer p {
-  margin-bottom: 1rem;
-}
-
-.footer-bar a {
+nav a:hover {
+  background-color: white;
   color: #433d8b;
-  margin: 0 10px;
 }
 
-.footer-bar a:hover {
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  border-radius: 5px;
+  z-index: 1;
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 5px 10px;
+  font-size: 14px;
+  color: #333;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.dropdown-content a:hover {
+  background-color: #433d8b;
+  color: white;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+main {
+  flex: 1;
+  overflow-y: auto;
+  padding: 15px;
+  background-color: #fff;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 10px 0;
+  background-color: #efe3f5;
+  text-align: left;
+  font-size: 14px;
+}
+
+table th,
+table td {
+  border: 1px solid #ccc;
+  padding: 6px;
+  text-align: center;
+}
+
+table th {
+  background-color: #433d8b;
+  color: white;
+  font-size: 14px;
+}
+
+table tr.highlight {
+  background-color: #433d8b !important;
+  color: white !important;
+}
+
+table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.komik-table img {
+  width: 50px;
+  height: auto;
+  border-radius: 8px;
+}
+
+footer {
+  text-align: center;
+  padding: 15px;
+  background-color: #433d8b;
+  color: white;
+  font-size: 14px;
+  margin-top: auto; /* Buat footer menempel di bawah */
+}
+
+footer a {
+  color: #ffcc00;
+  text-decoration: none;
+}
+
+footer a:hover {
   text-decoration: underline;
 }
 
-/* Responsive Design */
-@media (max-width: 1200px) {
-  /* On large screens (e.g., tablets and small desktops), adjust the sections */
-  article {
-    flex-direction: row;
-    justify-content: space-around;
-  }
-
-  article section {
-    width: 30%;
-  }
-}
-
+/* Responsiveness */
 @media (max-width: 768px) {
-  /* For medium screens (e.g., tablets and smaller devices), stack the sections vertically */
-  article {
-    flex-direction: column;
-    align-items: center;
+  table {
+    font-size: 12px;
   }
 
-  article section {
-    width: 80%; /* Make the section wider on smaller screens */
-    margin-bottom: 20px;
+  .komik-table img {
+    width: 40px;
   }
 
-  .nav-bar a {
-    font-size: 1rem; /* Adjust navigation font size */
-    margin: 0 5px;
+  nav a {
+    font-size: 12px;
+    padding: 0.3rem 0.6rem;
   }
 }
 
 @media (max-width: 480px) {
-  /* For very small screens (e.g., phones), make the font size smaller and stack everything */
-  header h1 {
-    font-size: 1.5rem;
+  table th,
+  table td {
+    font-size: 10px;
+    padding: 4px;
   }
 
-  main h2 {
-    font-size: 1.25rem;
+  .komik-table img {
+    width: 35px;
   }
 
-  .nav-bar a {
-    font-size: 0.9rem;
-    margin: 0 2px;
+  nav a {
+    font-size: 10px;
+    padding: 0.2rem 0.4rem;
   }
 
-  article section {
-    width: 90%; /* Maximize the width of sections on very small screens */
-  }
-
-  footer h2 {
-    font-size: 1.25rem;
-  }
-
-  footer p {
-    font-size: 0.9rem;
-  }
-
-  /* Allow horizontal scrolling for article */
-  main article {
-    flex-direction: row;
-    overflow-x: scroll;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  article section {
-    flex-shrink: 0; /* Prevent shrinking */
-    width: auto; /* Allow sections to take their full width */
-    min-width: 200px; /* Minimum width for each section */
-    margin-right: 10px; /* Add some space between sections */
+  footer {
+    font-size: 12px;
+    padding: 10px;
   }
 }
